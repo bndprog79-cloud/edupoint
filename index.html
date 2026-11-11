@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#0E5C3B">
+<meta name="theme-color" content="#FFFFFF">
 <title>EduPoint — білім беру орталығы [ДЕМО]</title>
 <meta name="description" content="EduPoint білім беру орталығы, Алматы, Наурызбай ауданы. Мектепке дайындық, ерте жастан дамыту, продленка, ағылшын, математика, би-гимнастика.">
 <meta property="og:type" content="website">
@@ -177,6 +177,85 @@ footer{padding:22px 0 30px;color:var(--mut);font-size:13px}
 @keyframes up{from{transform:translateY(16px);opacity:0}to{transform:none;opacity:1}}
 dialog{border:0;border-radius:18px;max-width:520px;padding:18px;color:var(--ink);box-shadow:0 20px 50px rgba(0,0,0,.25)}
 dialog::backdrop{background:rgba(19,38,29,.5)}
+
+/* ===== БЕЛЫЙ СТИЛЬ: чёткий, светлый, зелёный только в логотипе ===== */
+:root{--cream:#FFFFFF;--ink:#141414;--ink2:#3D3D3D;--mut:#737373;--line:#E8E8E8;--sh:none;--g3:#F4F4F4}
+body{background:#fff;font-weight:500}
+.top{box-shadow:none;border-bottom:1px solid var(--line)}
+.lang{background:#F2F2F2}.lang button{color:var(--ink)}.lang button[aria-pressed=true]{background:var(--ink);color:#fff}
+.demo{background:#F7F7F7;color:#666;border-bottom:1px solid var(--line)}
+.hero{background:#fff;color:var(--ink);text-align:center}
+.hero::after{display:none}
+.hero .wrap{padding-top:22px;padding-bottom:8px}
+.badge-logo{display:flex;justify-content:center;margin-bottom:14px}
+.badge-logo .ring{width:132px;height:132px;border-radius:50%;padding:4px;background:conic-gradient(from 200deg,#F28C1E,#FFB45E,#F28C1E,#E2611B,#F28C1E);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.badge-logo .ring::before{content:"";position:absolute;inset:4px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 3px #fff}
+.badge-logo .ring > *{position:relative}
+.badge-logo svg{width:46px;height:38px}
+.badge-logo b{font-weight:800;font-size:19px;color:#0E5C3B;line-height:1.1;margin-top:2px}
+.badge-logo small{font-weight:700;font-size:6.5px;letter-spacing:.06em;color:#F28C1E}
+.place{color:var(--mut);justify-content:center}
+h1{color:var(--ink);font-size:clamp(26px,7vw,40px)}
+h1 em{color:var(--o)}
+.lead-in{color:var(--ink2);margin-left:auto;margin-right:auto}
+.free{background:#FFF4E8;color:#B85A00}
+.ctas{justify-content:center}
+.btn.line{color:var(--ink);box-shadow:inset 0 0 0 1.5px #D4D4D4;background:#fff}
+.btn.g{background:var(--ink);color:#fff}
+/* круги-направления, как «Актуальное» */
+.circles{display:flex;gap:14px;overflow-x:auto;padding:22px 2px 6px;margin:0 -16px;padding-left:16px;padding-right:16px;scroll-snap-type:x mandatory;text-align:center}
+.circles::-webkit-scrollbar{height:0}
+.circle{flex:0 0 auto;width:74px;scroll-snap-align:start;background:none;border:0;padding:0;cursor:pointer;font:inherit;color:var(--ink)}
+.circle i{display:grid;place-items:center;width:66px;height:66px;margin:0 auto 6px;border-radius:50%;font-style:normal;font-size:28px;background:#fff;box-shadow:0 0 0 2px #fff,0 0 0 4px #DADADA}
+.circle span{display:block;font-size:11.5px;font-weight:700;line-height:1.2}
+.circle:active i{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--o)}
+/* блоки */
+.ages{box-shadow:none;border:1px solid var(--line);margin-top:18px}
+.step{border-width:1.5px}
+.step b{color:var(--ink)}
+.step[aria-pressed=true]{border-color:var(--ink);background:var(--ink)}
+.step[aria-pressed=true] b,.step[aria-pressed=true] small{color:#fff}
+h2{color:var(--ink)}
+.filter button{background:var(--ink)}
+.prog{box-shadow:none;border:1px solid var(--line);border-top:1px solid var(--line)}
+.prog.flash{border-color:var(--o);box-shadow:0 0 0 3px #FFE3C4}
+.prog .ic{background:#fff;box-shadow:0 0 0 1.5px var(--line);border-radius:50%}
+.prog li{background:#F4F4F4;color:var(--ink2)}
+.prog .price{color:var(--ink)}
+.prog .note{color:#B85A00}
+.mini{box-shadow:none;border:1px solid var(--line)}
+.mini small{color:#B85A00}
+.val{box-shadow:none;border:1px solid var(--line);color:var(--ink)}
+.val i{background:#FFF4E8}
+.win{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.win small{color:var(--mut)}
+/* заявка — белая карточка с оранжевой рамкой */
+.offer{background:#fff;color:var(--ink);border:2px solid var(--o)}
+.offer::before{display:none}
+.offer h2{color:var(--ink)}
+.offer .sub{color:var(--mut)}
+.quizres{background:#FFF4E8;color:var(--ink)}
+form label.t,.t{color:var(--ink2)}
+form input[type=text],form input[type=tel],form select{border:1.5px solid #D4D4D4}
+form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--o)}
+.seg label{border:1.5px solid #D4D4D4;color:var(--ink)}
+.seg label.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.consent{color:var(--ink2)}
+.consent button{color:#B85A00}
+.ferr{color:#C62828}.f.bad input,.f.bad select{border-color:#E57373}
+.done h3{color:var(--ink)}
+.contact{box-shadow:none;border:1px solid var(--line)}
+.contact .ln a{color:var(--ink)}
+.contact .btn{box-shadow:inset 0 0 0 1.5px #D4D4D4;color:var(--ink)}
+.dock{box-shadow:0 -1px 0 var(--line)}
+.sheet{background:#fff}
+.sheet-h{color:var(--ink)}
+.x{box-shadow:0 0 0 1.5px var(--line)}
+.opt{border-width:1.5px}
+.score{box-shadow:none;border:1px solid var(--line)}
+.score b{color:var(--ink)}
+.nudge{box-shadow:0 8px 24px rgba(0,0,0,.12)}
+
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -194,6 +273,7 @@ dialog::backdrop{background:rgba(19,38,29,.5)}
 <div class="demo" data-t="demo"></div>
 
 <div class="hero"><div class="wrap">
+  <div class="badge-logo"><div class="ring"><svg viewBox="0 0 48 40" aria-hidden="true"><path d="M24 12 L24 34" stroke="#0E5C3B" stroke-width="2.4" fill="none"/><path d="M24 34 C18 30 10 30 4 32 L4 13 C10 11 18 11 24 15" stroke="#0E5C3B" stroke-width="2.6" fill="none" stroke-linejoin="round"/><path d="M24 34 C30 30 38 30 44 32 L44 13 C38 11 30 11 24 15" stroke="#0E5C3B" stroke-width="2.6" fill="none" stroke-linejoin="round"/><path d="M9 18 C13 17 17 17 20 19 M9 23 C13 22 17 22 20 24 M28 19 C31 17 35 17 39 18 M28 24 C31 22 35 22 39 23" stroke="#0E5C3B" stroke-width="1.6" fill="none"/><path d="M24 15 L24 2 M19 7 L24 1.5 L29 7" stroke="#F28C1E" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><b>EduPoint</b><small>БІЛІМ БЕРУ ОРТАЛЫҒЫ</small></div></div>
   <span class="place">📍 <span data-t="place"></span></span>
   <h1 data-t="h1" data-html="1"></h1>
   <p class="lead-in" data-t="leadin"></p>
@@ -202,6 +282,7 @@ dialog::backdrop{background:rgba(19,38,29,.5)}
     <button class="btn o" type="button" data-open-quiz data-t="ctaQuiz"></button>
     <a class="btn line" href="#offer" data-t="ctaFree" data-go-form></a>
   </div>
+  <div class="circles" id="circles"></div>
 </div></div>
 
 <main class="wrap">
@@ -565,7 +646,7 @@ dialog::backdrop{background:rgba(19,38,29,.5)}
       if (el.hasAttribute('data-html')) { el.innerHTML = v; } else { el.textContent = v; }
     });
     document.querySelectorAll('.lang button').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false'); });
-    renderPath(); renderProgs(); renderSelects(); renderQuizRes(); setWa();
+    renderPath(); renderCircles(); renderProgs(); renderSelects(); renderQuizRes(); setWa();
   }
 
   // ---------- возраст и программы ----------
@@ -578,13 +659,39 @@ dialog::backdrop{background:rgba(19,38,29,.5)}
     var list = PROGS.filter(function (p) { return !state.stage || p.stages.indexOf(state.stage) >= 0; });
     document.getElementById('filter').hidden = !state.stage;
     if (state.stage) { document.getElementById('filterText').textContent = t('forStage')(stageName(state.stage)); }
-    document.getElementById('progs').innerHTML = list.map(progCard).join('');
+    document.getElementById('progs').innerHTML = list.map(function (p) { return progCard(p); }).join('');
     document.getElementById('extra').innerHTML = EXTRA.map(function (x) {
-      return '<button type="button" class="mini" data-pick="' + x.id + '"><span class="ic">' + x.ic + '</span><b>' + esc(x[lang]) + '</b><small>' + t('ask') + ' →</small></button>';
+      return '<button type="button" class="mini prog" id="p-' + x.id + '" data-pick="' + x.id + '"><span class="ic">' + x.ic + '</span><b>' + esc(x[lang]) + '</b><small>' + t('ask') + ' →</small></button>';
     }).join('');
   }
-  function progCard(p) {
-    return '<article class="prog" style="--c:' + p.c + '"><div class="hd"><span class="ic">' + p.ic + '</span><div><h3>' + esc(p[lang][0]) + '</h3><span class="tag">' + esc(p[lang][1]) + '</span></div></div>' +
+  var CIRCLES = [
+    { go: 'ezd34', ic: '🧩', kk: 'ЕЖД', ru: 'ЕЖД' },
+    { go: 'mad', ic: '🎒', kk: 'МАД', ru: 'Подготовка' },
+    { go: 'prod', ic: '🏫', kk: 'Продленка', ru: 'Продлёнка' },
+    { go: 'eng', ic: '🇬🇧', kk: 'Ағылшын', ru: 'Английский' },
+    { go: 'math', ic: '📐', kk: 'Математика', ru: 'Математика' },
+    { go: 'dance', ic: '🤸', kk: 'Би', ru: 'Танцы' },
+    { go: 'speed', ic: '📖', kk: 'Жылдам оқу', ru: 'Скорочтение' },
+    { go: 'write', ic: '✍️', kk: 'Әдемі жазу', ru: 'Каллиграфия' },
+    { go: 'logo', ic: '🗣️', kk: 'Логопед', ru: 'Логопед' },
+    { go: 'afk', ic: '🏃', kk: 'АФК', ru: 'АФК' }
+  ];
+  function renderCircles() {
+    document.getElementById('circles').innerHTML = CIRCLES.map(function (c) {
+      return '<button type="button" class="circle" data-go="' + c.go + '"><i>' + c.ic + '</i><span>' + esc(c[lang]) + '</span></button>';
+    }).join('');
+  }
+  document.getElementById('circles').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-go]'); if (!b) { return; }
+    var id = b.getAttribute('data-go');
+    if (state.stage && prog(id) && prog(id).stages.indexOf(state.stage) < 0) { setStage(''); }
+    var el = document.getElementById('p-' + id); if (!el) { return; }
+    el.scrollIntoView({ block: 'center' });
+    el.classList.add('flash'); setTimeout(function () { el.classList.remove('flash'); }, 1600);
+    track('stage', 'c-' + id);
+  });
+  function progCard(p, noId) {
+    return '<article class="prog"' + (noId ? '' : ' id="p-' + p.id + '"') + ' style="--c:' + p.c + '"><div class="hd"><span class="ic">' + p.ic + '</span><div><h3>' + esc(p[lang][0]) + '</h3><span class="tag">' + esc(p[lang][1]) + '</span></div></div>' +
       '<ul>' + p.b[lang].map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' +
       (p.n ? '<div class="note">★ ' + esc(p.n[lang]) + '</div>' : '') +
       '<div class="row"><div class="price">' + fmt(p.price) + ' <small>' + t('perMonth') + '</small></div>' +
@@ -798,7 +905,7 @@ dialog::backdrop{background:rgba(19,38,29,.5)}
         var r = state.score / state.max, msg = r >= 0.8 ? t('scoreHi') : (r >= 0.5 ? t('scoreMid') : t('scoreLo'));
         h += '<div class="score"><b>' + t('scoreTitle')(state.score, state.max) + '</b><p>' + msg + '</p><p class="hint">' + t('scoreHint') + '</p></div>';
       }
-      h += '<p class="qq">' + t('resH') + '</p><div class="res">' + rec.map(progCard).join('') + '</div>' +
+      h += '<p class="qq">' + t('resH') + '</p><div class="res">' + rec.map(function (p) { return progCard(p, true); }).join('') + '</div>' +
         '<button type="button" class="btn o send" id="qGo">' + t('resGo') + '</button>';
     }
     if (qi > 0) { h += '<button type="button" class="back" id="qBack">' + t('back') + '</button>'; }
@@ -846,7 +953,7 @@ dialog::backdrop{background:rgba(19,38,29,.5)}
 
   // ---------- мягкая подсказка: один раз за визит ----------
   var nudge = document.getElementById('nudge'), nudgeShown = sget('sessionStorage', 'ep-nudge') === '1';
-  function canNudge() { return !nudgeShown && sget('sessionStorage', 'ep-quiz') !== '1' && sget('sessionStorage', 'ep-lead') !== '1' && !sheet.classList.contains('on'); }
+  function canNudge() { return !nudgeShown && !sent.form && sget('sessionStorage', 'ep-quiz') !== '1' && sget('sessionStorage', 'ep-lead') !== '1' && !sheet.classList.contains('on'); }
   function showNudge() { if (!canNudge()) { return; } nudgeShown = true; sset('sessionStorage', 'ep-nudge', '1'); nudge.classList.add('on'); }
   function hideNudge(keep) { nudge.classList.remove('on'); if (!keep) { nudgeShown = true; sset('sessionStorage', 'ep-nudge', '1'); } }
   document.getElementById('nudgeX').addEventListener('click', function () { hideNudge(); });
