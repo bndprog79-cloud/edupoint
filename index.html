@@ -84,7 +84,9 @@ h2 em{font-style:normal;color:var(--o)}
 @media(min-width:620px){.progs{grid-template-columns:1fr 1fr}}
 .prog{background:var(--card);border-radius:var(--r);box-shadow:var(--sh);padding:16px;display:flex;flex-direction:column;gap:8px;border-top:5px solid var(--c,var(--g))}
 .prog .hd{display:flex;gap:10px;align-items:flex-start}
-.prog .ic{width:42px;height:42px;border-radius:12px;background:var(--g3);display:grid;place-items:center;font-size:22px;flex:0 0 auto}
+.prog .ic{width:48px;height:48px;flex:0 0 auto;display:block}
+/* иконки набора Gemini (img/ic, 192×192 webp, плитка со скруглением) */
+.ici{display:block;flex:0 0 auto;border-radius:22%}
 .prog h3{margin:0;font-size:17px;line-height:1.2;font-weight:800;color:var(--ink)}
 .prog .tag{font-size:12px;font-weight:700;color:var(--mut)}
 .prog ul{margin:2px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
@@ -98,14 +100,17 @@ h2 em{font-style:normal;color:var(--o)}
 .minis{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(min-width:620px){.minis{grid-template-columns:repeat(4,1fr)}}
 .mini{background:#fff;border-radius:16px;box-shadow:var(--sh);padding:12px;display:flex;flex-direction:column;gap:6px;text-align:left;border:0;font:inherit;color:var(--ink);cursor:pointer}
-.mini .ic{font-size:22px}
+.mini .ic{width:44px;height:44px}
 .mini b{font-size:15px;font-weight:800}
 .mini small{font-size:12px;font-weight:700;color:var(--o2)}
 /* доверие */
 .vals{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(min-width:620px){.vals{grid-template-columns:repeat(4,1fr)}}
 .val{background:#fff;border-radius:16px;box-shadow:var(--sh);padding:14px;font-weight:800;font-size:14px;color:var(--g)}
-.val i{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--o3);font-style:normal;font-size:19px;margin-bottom:8px}
+.val .ici{width:44px;height:44px;margin-bottom:10px}
+.wins-h{display:flex;align-items:center;gap:10px;font-size:22px;margin:30px 0 0;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1.2;color:var(--ink)}
+.wins-h .ici{width:42px;height:42px}
+.wins-h em{font-style:normal;color:#EC6A20}
 .wins{display:grid;gap:10px;margin-top:14px}
 .win{display:flex;gap:12px;align-items:center;background:var(--g);color:#fff;border-radius:16px;padding:13px 15px}
 .win span{font-size:26px}
@@ -189,6 +194,7 @@ body{background:#fff;font-weight:500}
 .top{box-shadow:none;border-bottom:1px solid var(--line)}
 .lang{background:#F2F2F2}.lang button{color:var(--ink)}.lang button[aria-pressed=true]{background:var(--ink);color:#fff}
 .demo{background:#F7F7F7;color:#666;border-bottom:1px solid var(--line)}
+.demo.demo-b2{background:#B93D0C;color:#fff;border:0;font-size:13.5px;font-weight:800;padding:9px 14px;line-height:1.35}
 .hero{background:#fff;color:var(--ink);text-align:center}
 .hero::after{display:none}
 .hero .wrap{padding-top:22px;padding-bottom:8px}
@@ -210,9 +216,35 @@ h1 em,h2 em{color:#EC6A20} /* оранжевый логотипа чуть те�
 .circles{display:flex;gap:14px;overflow-x:auto;padding:22px 2px 6px;margin:0 -16px;padding-left:16px;padding-right:16px;scroll-snap-type:x mandatory;text-align:center}
 .circles::-webkit-scrollbar{height:0}
 .circle{flex:0 0 auto;width:74px;scroll-snap-align:start;background:none;border:0;padding:0;cursor:pointer;font:inherit;color:var(--ink)}
-.circle i{display:grid;place-items:center;width:66px;height:66px;margin:0 auto 6px;border-radius:50%;font-style:normal;font-size:28px;background:#fff;box-shadow:0 0 0 2px #fff,0 0 0 4px #DADADA}
+.circle .ici{width:56px;height:56px;margin:5px auto 8px;transition:transform .1s}
 .circle span{display:block;font-size:11.5px;font-weight:700;line-height:1.2}
-.circle:active i{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--o)}
+.circle:active .ici{transform:scale(.94);box-shadow:0 0 0 3px #fff,0 0 0 5px var(--o)}
+/* купон 15 000 ₸ — билет в потоке страницы */
+.coupon{position:relative;display:flex;align-items:stretch;max-width:520px;margin:16px auto 0;text-align:left;text-decoration:none;color:var(--ink);background:#FFF4E8;border:1.5px dashed #F2A36B;border-radius:16px;overflow:hidden;transition:transform .1s}
+.coupon:active{transform:scale(.99)}
+.coupon:focus-visible{outline:3px solid #FFD3A1;outline-offset:2px}
+.coupon::before,.coupon::after{content:"";position:absolute;left:88px;width:18px;height:18px;border-radius:50%;background:#fff;border:1.5px dashed #F2A36B;z-index:2}
+.coupon::before{top:-11px}.coupon::after{bottom:-11px}
+.cp-sum{flex:0 0 97px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 6px;background:#F17228;color:#fff;border-right:2px dashed #FFF4E8;line-height:1}
+.cp-sum b{font-size:22px;font-weight:900;letter-spacing:-.02em;white-space:nowrap}
+.cp-sum small{font-size:10.5px;font-weight:800;letter-spacing:.08em;margin-top:5px;text-transform:uppercase;opacity:.95}
+.cp-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px;padding:10px 12px 11px 14px;align-self:center}
+.cp-txt{font-size:12.5px;line-height:1.38;font-weight:600;color:var(--ink2)}
+.cp-txt .ici{display:inline-block;width:20px;height:20px;border-radius:5px;vertical-align:-5px;margin-right:5px}
+.cp-btn .ici{display:inline-block;width:22px;height:22px;border-radius:5px;vertical-align:-6px;margin-right:7px;box-shadow:0 0 0 1.5px rgba(255,255,255,.85)}
+.cp-txt b{color:#A9480F;font-weight:800;white-space:nowrap}
+/* кнопка «Купонды алу»: покачивание ±3° (0,6 с) раз в 4,5 с + мягкая пульсирующая тень; после нажатия — стоп (.cp-stop) */
+.cp-btn{display:block;text-align:center;background:#F17228;color:#fff;font-weight:800;font-size:14px;line-height:1.2;border-radius:10px;padding:9px 10px;box-shadow:0 2px 8px rgba(241,114,40,.35);animation:cp-wig 4.5s ease-in-out 1.5s infinite,cp-glow 2.25s ease-in-out 1.5s infinite}
+.coupon:hover .cp-btn{filter:brightness(1.05)}
+.coupon.cp-stop .cp-btn{animation:none}
+@keyframes cp-wig{0%{transform:rotate(0)}2.2%{transform:rotate(-3deg)}4.4%{transform:rotate(3deg)}6.6%{transform:rotate(-3deg)}8.8%{transform:rotate(3deg)}11%{transform:rotate(-1.5deg)}13.3%,100%{transform:rotate(0)}}
+@keyframes cp-glow{0%,100%{box-shadow:0 2px 8px rgba(241,114,40,.35)}50%{box-shadow:0 2px 16px 3px rgba(241,114,40,.55)}}
+.cp-shine{position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.65) 50%,transparent 65%);transform:translateX(-120%);animation:cp-shine 9s ease-in-out -4.2s infinite}
+@keyframes cp-shine{0%,85.5%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+@media(max-width:419px){.cp-sum{flex-basis:86px}.cp-sum b{font-size:19px}.coupon::before,.coupon::after{left:77px}.cp-body{padding:9px 10px 10px 12px;gap:7px}.cp-txt{font-size:12px}}
+@media(min-width:620px){.cp-txt{font-size:14px}}
+.cp-badge{display:flex;gap:8px;align-items:center;background:#FFF4E8;border:1.5px dashed #F2A36B;color:#A9480F;font-weight:800;font-size:13.5px;border-radius:12px;padding:9px 12px;margin:2px 0 14px}
+.cp-done{display:inline-block;margin-top:12px;background:#FFF4E8;border:1.5px dashed #F2A36B;color:#A9480F;font-weight:800;font-size:14px;border-radius:12px;padding:9px 12px}
 /* блоки */
 .ages{box-shadow:none;border:1px solid var(--line);margin-top:18px}
 .step{border-width:1.5px}
@@ -223,21 +255,42 @@ h2{color:var(--ink)}
 .filter button{background:var(--ink)}
 .prog{box-shadow:none;border:1px solid var(--line);border-top:1px solid var(--line)}
 .prog.flash{border-color:var(--o);box-shadow:0 0 0 3px #FFE3C4}
-.prog .ic{background:#fff;box-shadow:0 0 0 1.5px var(--line);border-radius:50%}
+/* блок «Пойнтс»: зелёная плашка, 2 фото рядом */
+.pts{background:#08453E;color:#fff;border-radius:24px;border-top:5px solid #F17228;padding:20px 18px 18px;display:grid;gap:16px;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(8,69,62,.18)}
+.pts h2{color:#fff;font-size:22px;line-height:1.2;margin:0 0 8px;position:relative;z-index:1;display:flex;gap:12px;align-items:center}
+.pts h2 .ici{width:46px;height:46px;box-shadow:0 0 0 2px #F17228}
+.pts h2 em{color:#FFB27A}
+.pts p{margin:0;font-size:14.5px;line-height:1.5;color:#E6EFEC;position:relative;z-index:1}
+.pts p b{color:#fff;background:#F17228;border-radius:6px;padding:0 5px;white-space:nowrap}
+.pts-ph{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:relative;z-index:1}
+.pts-ph img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:50% 45%;border-radius:14px;border:3px solid #F17228;background:#0B5A51}
+@media(min-width:620px){.pts{grid-template-columns:1.1fr 1fr;align-items:center;padding:26px}.pts h2{font-size:26px}}
+/* фото программ: полоса 4:3, листается пальцем (scroll-snap), точки-индикаторы; фото целиком на размытом фоне */
+.prog{overflow:hidden}
+.ph{position:relative;flex:0 0 auto;margin:-16px -16px 2px;aspect-ratio:4/3;min-height:0;overflow:hidden;background:var(--g3)}
+.ph-s{display:flex;height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.ph-s::-webkit-scrollbar{display:none}
+.ph-i{position:relative;flex:0 0 100%;height:100%;margin:0;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always}
+.ph-i img{position:relative;display:block;width:100%;height:100%;object-fit:contain}
+.ph-i .ph-bg{position:absolute;inset:-24px;width:calc(100% + 48px);height:calc(100% + 48px);object-fit:cover;filter:blur(16px) brightness(.85)}
+.ph-d{position:absolute;left:0;right:0;bottom:8px;display:flex;justify-content:center;gap:2px;pointer-events:none}
+.ph-d button{pointer-events:auto;width:20px;height:20px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
+.ph-d button::before{content:"";width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(0,0,0,.18);transition:width .2s}
+.ph-d button[aria-current=true]::before{width:18px;border-radius:4px;background:#fff}
+.ph-s:focus-visible{outline:3px solid var(--o);outline-offset:-3px}
 .prog li{background:#F4F4F4;color:var(--ink2)}
 .prog .price{color:var(--ink)}
 .prog .note{color:#A9480F}
 .mini{box-shadow:none;border:1px solid var(--line)}
 .mini small{color:#A9480F}
 .val{box-shadow:none;border:1px solid var(--line);color:var(--ink)}
-.val i{background:#FFF4E8}
 .win{background:#fff;color:var(--ink);border:1px solid var(--line)}
 .win small{color:var(--mut)}
 /* условия */
 .terms{display:grid;gap:8px}
 @media(min-width:620px){.terms{grid-template-columns:1fr 1fr}}
 .term{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:16px;padding:12px 14px;font-weight:700;font-size:14px}
-.term i{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#FFF4E8;font-style:normal;font-size:18px;flex:0 0 auto;color:#A9480F;font-weight:900}
+.term .ici{width:44px;height:44px}
 /* заявка — белая карточка с оранжевой рамкой */
 .offer{background:#fff;color:var(--ink);border:2px solid var(--o)}
 .offer::before{display:none}
@@ -291,6 +344,7 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
     <button class="btn o" type="button" data-open-quiz data-t="ctaQuiz"></button>
     <a class="btn line" href="#offer" data-t="ctaFree" data-go-form></a>
   </div>
+  <a class="coupon" href="#offer" data-go-form data-coupon><span class="cp-sum"><b>15 000 ₸</b><small data-t="cpWord"></small></span><span class="cp-body"><span class="cp-txt"><img class="ici" src="img/ic/coupon.webp" width="20" height="20" alt="" aria-hidden="true" decoding="async"><span data-t="coupon" data-html="1"></span></span><span class="cp-btn"><img class="ici" src="img/ic/coupon.webp" width="22" height="22" alt="" aria-hidden="true" decoding="async"><span data-t="couponBtn"></span></span></span><span class="cp-shine" aria-hidden="true"></span></a>
   <div class="circles" id="circles"></div>
 </div></div>
 
@@ -308,14 +362,25 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
     <div class="extra"><h3 data-t="extraH"></h3><div class="minis" id="extra"></div></div>
   </section>
 
+  <section id="points">
+    <div class="pts">
+      <div><h2><img class="ici" src="img/ic/points.webp" width="46" height="46" alt="" aria-hidden="true" loading="lazy" decoding="async"><span data-t="ptsH" data-html="1"></span></h2><p data-t="ptsP" data-html="1"></p></div>
+      <div class="pts-ph">
+        <img src="img/points-1.webp" width="506" height="900" loading="lazy" decoding="async" data-alt="ptsAlt1" alt="">
+        <img src="img/points-2.webp" width="506" height="900" loading="lazy" decoding="async" data-alt="ptsAlt2" alt="">
+      </div>
+    </div>
+  </section>
+
   <section id="why">
     <h2 data-t="whyH" data-html="1"></h2>
     <div class="vals">
-      <div class="val"><i>🛡️</i><span data-t="v1"></span></div>
-      <div class="val"><i>🤝</i><span data-t="v2"></span></div>
-      <div class="val"><i>👩‍🏫</i><span data-t="v3"></span></div>
-      <div class="val"><i>📞</i><span data-t="v4"></span></div>
+      <div class="val"><img class="ici" src="img/ic/v1.webp" width="44" height="44" alt="" aria-hidden="true" loading="lazy" decoding="async"><span data-t="v1"></span></div>
+      <div class="val"><img class="ici" src="img/ic/v2.webp" width="44" height="44" alt="" aria-hidden="true" loading="lazy" decoding="async"><span data-t="v2"></span></div>
+      <div class="val"><img class="ici" src="img/ic/v3.webp" width="44" height="44" alt="" aria-hidden="true" loading="lazy" decoding="async"><span data-t="v3"></span></div>
+      <div class="val"><img class="ici" src="img/ic/v4.webp" width="44" height="44" alt="" aria-hidden="true" loading="lazy" decoding="async"><span data-t="v4"></span></div>
     </div>
+    <h3 class="wins-h"><img class="ici" src="img/ic/wins.webp" width="42" height="42" alt="" aria-hidden="true" loading="lazy" decoding="async"><span data-t="winsH" data-html="1"></span></h3>
     <div class="wins">
       <div class="win"><span>🥈</span><div><b data-t="w1"></b><small data-t="w1s"></small></div></div>
       <div class="win"><span>🥈</span><div><b data-t="w2"></b><small data-t="w2s"></small></div></div>
@@ -326,11 +391,11 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
   <section id="terms">
     <h2 data-t="termsH" data-html="1"></h2>
     <div class="terms">
-      <div class="term"><i>🎁</i><span data-t="t1"></span></div>
-      <div class="term"><i>％</i><span data-t="t2"></span></div>
-      <div class="term"><i>💳</i><span data-t="t3"></span></div>
-      <div class="term"><i>📚</i><span data-t="t4"></span></div>
-      <div class="term"><i>❄️</i><span data-t="t5"></span></div>
+      <div class="term"><img class="ici" src="img/ic/t1.webp" width="44" height="44" alt="" aria-hidden="true" loading="lazy" decoding="async"><span data-t="t1"></span></div>
+      <div class="term"><img class="ici" src="img/ic/t2.webp" width="44" height="44" alt="" aria-hidden="true" loading="lazy" decoding="async"><span data-t="t2"></span></div>
+      <div class="term"><img class="ici" src="img/ic/t3.webp" width="44" height="44" alt="" aria-hidden="true" loading="lazy" decoding="async"><span data-t="t3"></span></div>
+      <div class="term"><img class="ici" src="img/ic/t4.webp" width="44" height="44" alt="" aria-hidden="true" loading="lazy" decoding="async"><span data-t="t4"></span></div>
+      <div class="term"><img class="ici" src="img/ic/t5.webp" width="44" height="44" alt="" aria-hidden="true" loading="lazy" decoding="async"><span data-t="t5"></span></div>
     </div>
   </section>
 
@@ -339,6 +404,7 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
       <span class="badge" data-t="badge"></span>
       <h2 data-t="offerH"></h2>
       <p class="sub" data-t="offerSub"></p>
+      <div class="cp-badge" data-t="couponShort"></div>
       <div class="quizres" id="quizres"></div>
       <form id="leadForm" novalidate>
         <div class="two">
@@ -366,6 +432,7 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
       <div class="done" id="done">
         <h3 id="doneH"></h3>
         <p class="sub" data-t="doneSub" style="margin:0"></p>
+        <p class="cp-done" data-t="couponDone"></p>
         <a class="waline" id="doneWa" href="#" target="_blank" rel="noopener" hidden>WhatsApp · <span data-t="waNow"></span></a>
       </div>
     </div>
@@ -441,36 +508,42 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
   // Прайс центра (11.11.2026, подтверждён 12.11) + состав программ из их Instagram. Расписания пока нет.
   // Первое занятие бесплатно на всех курсах (центр 12.11) — строка в каждой карточке (freeCard).
   var PROGS = [
-    { id: 'ezd34', ic: '🧩', c: '#08453E', price: 35000, stages: ['s34'], goals: ['dev'],
+    { id: 'ezd34', ph: ['ezd', 4], ic: 'ezd', c: '#08453E', price: 35000, stages: ['s34'], goals: ['dev'],
       kk: ['Ерте жастан дамыту (ЕЖД)', '3–4 жас'], ru: ['Раннее развитие (ЕЖД)', '3–4 года'],
-      b: { kk: ['Сауат ашу', 'Математика', 'Ойлау мен есте сақтау', 'Шығармашылық', 'АФК'], ru: ['Грамота', 'Математика', 'Мышление и память', 'Творчество', 'АФК'] } },
-    { id: 'ezd45', ic: '🧩', c: '#08453E', price: 35000, stages: ['s45'], goals: ['dev'],
+      b: { kk: ['Сауат ашу', 'Математика', 'Ойлау мен есте сақтау', 'Шығармашылық'], ru: ['Грамота', 'Математика', 'Мышление и память', 'Творчество'] } },
+    { id: 'ezd45', ph: ['ezd', 4, 2], ic: 'ezd', c: '#08453E', price: 35000, stages: ['s45'], goals: ['dev'],
       kk: ['Ерте жастан дамыту (ЕЖД)', '4–5 жас'], ru: ['Раннее развитие (ЕЖД)', '4–5 лет'],
-      b: { kk: ['Сауат ашу', 'Математика', 'Ойлау мен есте сақтау', 'Қоршаған орта', 'АФК'], ru: ['Грамота', 'Математика', 'Мышление и память', 'Окружающий мир', 'АФК'] } },
-    { id: 'mad', ic: '🎒', c: '#F17228', price: 45000, stages: ['s56'], goals: ['school', 'dev'],
+      b: { kk: ['Сауат ашу', 'Математика', 'Ойлау мен есте сақтау', 'Қоршаған орта'], ru: ['Грамота', 'Математика', 'Мышление и память', 'Окружающий мир'] } },
+    { id: 'mad', ph: ['mad', 5], ic: 'mad', c: '#F17228', price: 45000, stages: ['s56'], goals: ['school', 'dev'],
       kk: ['Мектепалды даярлық', '5–6 жас · 9 айлық курс'], ru: ['Подготовка к школе', '5–6 лет · курс 9 месяцев'],
-      b: { kk: ['Әліппе', 'Математика', 'Тіл дамыту', 'Логика', 'Қоршаған орта', 'АФК'], ru: ['Букварь', 'Математика', 'Развитие речи', 'Логика', 'Окружающий мир', 'АФК'] } },
-    { id: 'prod', ic: '🏫', c: '#08453E', price: 40000, stages: ['g14'], goals: ['care', 'grades'],
+      b: { kk: ['Әліппе', 'Математика', 'Тіл дамыту', 'Логика', 'Қоршаған орта'], ru: ['Букварь', 'Математика', 'Развитие речи', 'Логика', 'Окружающий мир'] } },
+    { id: 'prod', ph: ['prod', 4], ic: 'prod', c: '#08453E', price: 40000, stages: ['g14'], goals: ['care', 'grades'],
       kk: ['Ұзартылған күн тобы', '1–4 сынып'], ru: ['Группа продлённого дня', '1–4 класс'],
       b: { kk: ['Үй тапсырмасына көмек', 'Танымдық даму', 'Қауіпсіз орта'], ru: ['Помощь с домашним заданием', 'Развитие', 'Безопасная среда'] },
       n: { kk: 'Орындар саны шектеулі', ru: 'Количество мест ограничено' } },
-    { id: 'eng', ic: '🇬🇧', c: '#F17228', price: 25000, stages: ['s56', 'g14', 'g510', 'g11'], goals: ['eng'],
+    { id: 'eng', ic: 'eng', c: '#F17228', price: 25000, stages: ['s56', 'g14', 'g510', 'g11'], goals: ['eng'],
       kk: ['Ағылшын тілі', '6–18 жас'], ru: ['Английский язык', '6–18 лет'],
       b: { kk: ['Сөйлеуге бағытталған', 'Грамматика', 'Сөздік қор'], ru: ['Упор на разговор', 'Грамматика', 'Словарный запас'] } },
-    { id: 'math', ic: '📐', c: '#08453E', price: 25000, stages: ['g510'], goals: ['grades'],
+    { id: 'math', ph: ['math', 2], ic: 'math', c: '#08453E', price: 25000, stages: ['g510'], goals: ['grades'],
       kk: ['Математика', '5–10 сынып'], ru: ['Математика', '5–10 класс'],
       b: { kk: ['Олқылықтарды толтыру', 'Үлгерімді көтеру'], ru: ['Закрыть пробелы', 'Подтянуть успеваемость'] } },
-    { id: 'dance', ic: '🤸', c: '#F17228', price: 20000, stages: ['s34', 's45', 's56', 'g14', 'g510'], goals: ['move', 'dev'],
+    { id: 'dance', ph: ['dance', 4], ic: 'dance', c: '#F17228', price: 20000, stages: ['s34', 's45', 's56', 'g14', 'g510'], goals: ['move', 'dev'],
       kk: ['Би-гимнастика', '3–14 жас'], ru: ['Танцы-гимнастика', '3–14 лет'],
       b: { kk: ['Икемділік', 'Сахна', 'Байқаулар'], ru: ['Гибкость', 'Сцена', 'Конкурсы'] },
       n: { kk: 'Ташкент-2026 — Гран-при', ru: 'Ташкент-2026 — Гран-при' } }
   ];
   // Направления из профиля без цены в прайсе — возраст и цену уточняет центр.
+  // Подписи к фото программ (alt), KZ/RU. Сами фото — img/<ключ>-N.webp (900 px, без EXIF), согласие центра 18.11.2026.
+  var PH_ALT = {
+    ezd: { kk: 'ЕЖД сабағы', ru: 'Занятие ЕЖД (раннее развитие)' },
+    mad: { kk: 'Мектепалды даярлық сабағы', ru: 'Занятие по подготовке к школе' },
+    prod: { kk: 'Ұзартылған күн тобы', ru: 'Группа продлённого дня' },
+    math: { kk: 'Математика сабағы', ru: 'Занятие по математике' },
+    dance: { kk: 'Би-гимнастика оқушылары', ru: 'Ученики танцев-гимнастики' }
+  };
   var EXTRA = [
-    { id: 'speed', ic: '📖', kk: 'Жылдам оқу', ru: 'Скорочтение' },
-    { id: 'write', ic: '✍️', kk: 'Әдемі жазу', ru: 'Каллиграфия' },
-    { id: 'logo', ic: '🗣️', kk: 'Логопед', ru: 'Логопед' },
-    { id: 'afk', ic: '🏃', kk: 'АФК', ru: 'АФК' }
+    { id: 'speed', ic: 'speed', kk: 'Жылдам оқу', ru: 'Скорочтение' },
+    { id: 'write', ic: 'write', kk: 'Әдемі жазу', ru: 'Каллиграфия' }
   ];
   var GOALS = [
     { id: 'school', e: '🎒', kk: 'Мектепке дайындық', ru: 'Подготовка к школе' },
@@ -508,6 +581,7 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
   var T = {
     kk: {
       demo: 'ДЕМО · тек ойдан шығарылған аттар мен нөмірлерді енгізіңіз',
+      demoB2: '⚠️ ДЕМО-нұсқа: нақты нөмір жазбаңыз, тек ойдан шығарылған',
       place: 'Алматы, Наурызбай ауданы',
       h1: 'Балаңызға дұрыс орта және <em>нәтижелі</em> білім',
       leadin: 'Ерте жастан дамыту, мектепке дайындық, продленка, ағылшын, математика және би-гимнастика — 3 жастан 18 жасқа дейін.',
@@ -518,9 +592,18 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
       showAll: 'Барлығы ✕', forStage: function (s) { return s + ' үшін:'; },
       extraH: 'Тағы бағыттар', ask: 'Бағасын сұраңыз',
       perMonth: '₸ / ай', pick: 'Жазылу',
-      whyH: 'Неге <em>EduPoint</em>?', v1: 'Қауіпсіз және жайлы орта', v2: 'Әр балаға жеке көңіл бөлу', v3: 'Тәжірибелі ұстаздар', v4: 'Ата-анамен тұрақты байланыс',
+      whyH: 'Неге <em>EduPoint</em>?', winsH: '<em>Жетістіктеріміз</em>', v1: 'Қауіпсіз және жайлы орта', v2: 'Әр балаға жеке көңіл бөлу', v3: 'Тәжірибелі ұстаздар', v4: 'Ата-анамен тұрақты байланыс',
       w1: '«Бала шабыты» халықаралық байқауы — II орын', w1s: 'Би-гимнастика', w2: '«Балапан» олимпиадасы — II орын', w2s: 'Біздің оқушымыз', w3: '«Самұрық» олимпиадасы — III орын', w3s: 'Біздің оқушымыз',
-      termsH: '<em>Шарттар</em>', t1: 'Барлық курста алғашқы сабақ — тегін', t2: 'Бір бала 3 курсқа барса — 10% жеңілдік', t3: 'Төлем: Kaspi, қолма-қол, аударым, қашықтан төлеу', t4: 'Қосымша: кітаптар бөлек төленеді', t5: 'Анықтама болса немесе сабақты орталық болдырмаса — абонемент тоқтатылады (мұздатылады)',
+      termsH: '<em>Шарттар</em>', t1: 'Барлық курста алғашқы сабақ — тегін', t2: '3 курс алған жағдайда ең қымбат курсқа 10% жеңілдік жасалады', t3: 'Төлем: Kaspi, қолма-қол, аударым, қашықтан төлеу', t4: 'Қосымша: кітаптар бөлек төленеді', t5: 'Баланың денсаулығына байланысты немесе орталықтың тарапынан болған себептермен өтілмеген сабақ құны төлемнен шегеріледі',
+      cpWord: 'купон',
+      coupon: 'Телефон нөміріңізді қалдырып, кез келген курсқа <b>15 000 ₸ купон</b> алыңыз! Купон 12 айға жарамды!',
+      couponBtn: 'Купонды алу',
+      ptsH: 'Жақсы оқу — <em>сыйлыққа</em> апарады!',
+      ptsP: 'Орталықта жақсы нәтиже көрсеткен балалар пойнтс алады. <b>20 пойнтс</b> жинаған бала өзіне ұнаған затты «сатып алады». Суретте — пойнтсқа өздеріне керек заттарды алған оқушыларымыз.',
+      ptsAlt1: 'Біздің оқушымыз пойнтсқа алған сыйлығымен', ptsAlt2: 'Біздің оқушымыз пойнтсқа алған сыйлығымен',
+      couponShort: '🎟 Телефон қалдырыңыз — 15 000 ₸ купон, 12 ай',
+      couponDone: '🎟 Купон 15 000 ₸ сізге бекітілді — 12 ай жарамды',
+      mCoupon: 'Купон 15 000 ₸ (12 ай)',
       badge: '🎁 Тегін', offerH: 'Алғашқы сабаққа тегін келіңіз',
       fName: 'Ата-ананың аты', fPhone: 'Телефон', fChild: 'Баланың жасы / сыныбы', fProg: 'Бағдарлама',
       fContact: 'Қалай хабарласайық?', call: 'Қоңырау', anyProg: 'Кеңес керек — әлі білмеймін', noStage: 'Таңдаңыз',
@@ -528,7 +611,7 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
       eName: 'Атыңызды жазыңыз', ePhone: 'Нөмірді +7 7XX XXX XX XX түрінде жазыңыз', eConsent: 'Келісім белгісін қойыңыз',
       doneH: function (n) { return 'Рахмет, ' + n + '!'; },
       quizRes: function (a) { return 'Тест нәтижесі: <b>' + a + '</b>'; },
-      contH: '<em>Байланыс</em>', addr: 'Алматы, Наурызбай ауданы, Жүнісов к-сі, 2/22 к13', hours: 'Дс–Жм 09:00–19:00 · Сб, Жс — демалыс', route: '2ГИС-те маршрут', callBtn: 'Қоңырау шалу',
+      contH: '<em>Байланыс</em>', addr: 'Алматы, Наурызбай ауданы, Жүнісов к-сі, 2/22', hours: 'Дс–Жм 09:00–19:00 · Сб, Жс — демалыс', route: '2ГИС-те маршрут', callBtn: 'Қоңырау шалу',
       foot: 'білім беру орталығы', foot2: 'Демо-нұсқа. Деректер тексеру үшін ғана.',
       dockFree: 'Тегін сабақ', dockQuiz: 'Тест', nudge: 'Балаңыз мектепке дайын ба? 5 сұрақ, 1 минут.', nudgeGo: 'Тексеру',
       quizTitle: 'Тегін тексеру', q1: 'Балаңыз қай жаста?', qGoal: 'Не маңызды?', qTime: 'Қай уақыт ыңғайлы?',
@@ -538,6 +621,7 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
       scoreMid: 'Жақсы бастама! Бірнеше дағдыны дамытуға болады — ұстаздар нақты жоспар ұсынады.',
       scoreLo: 'Ештеңе етпейді — дәл осы жаста дағдылар тез дамиды. Ұстаздар қай жерден бастау керегін көрсетеді.',
       scoreHint: 'Бұл — қысқа бағдар, диагноз емес. Толық диагностика — орталықта, тегін.',
+      quizCoupon: '🎟 Нәтижені өтінімге жіберіп, телефон қалдырыңыз — 15\u00a0000\u00a0₸ купон, 12\u00a0ай',
       resH: 'Сізге сәйкес келеді:', resGo: 'Тегін сабаққа / диагностикаға жазылу', back: '← Артқа',
       policyH: 'Деректер туралы', ok: 'Түсінікті',
       waMsg: 'Сәлеметсіз бе! Тегін сабаққа жазылғым келеді.',
@@ -560,6 +644,7 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
     },
     ru: {
       demo: 'ДЕМО · вводите только выдуманные имена и номера',
+      demoB2: '⚠️ ДЕМО: не вводите настоящий номер, только выдуманный',
       place: 'Алматы, Наурызбайский район',
       h1: 'Правильная среда и <em>результативное</em> обучение для вашего ребёнка',
       leadin: 'Раннее развитие, подготовка к школе, продлёнка, английский, математика и танцы-гимнастика — от 3 до 18 лет.',
@@ -570,9 +655,18 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
       showAll: 'Все ✕', forStage: function (s) { return 'Для ' + s + ':'; },
       extraH: 'Ещё направления', ask: 'Цену уточните',
       perMonth: '₸ / мес', pick: 'Записаться',
-      whyH: 'Почему <em>EduPoint</em>?', v1: 'Безопасная и уютная среда', v2: 'Внимание каждому ребёнку', v3: 'Опытные педагоги', v4: 'Постоянная связь с родителями',
+      whyH: 'Почему <em>EduPoint</em>?', winsH: 'Наши <em>достижения</em>', v1: 'Безопасная и уютная среда', v2: 'Внимание каждому ребёнку', v3: 'Опытные педагоги', v4: 'Постоянная связь с родителями',
       w1: 'Международный конкурс «Бала шабыты» — II место', w1s: 'Танцы-гимнастика', w2: 'Олимпиада «Балапан» — II место', w2s: 'Наша ученица', w3: 'Олимпиада «Самұрық» — III место', w3s: 'Наша ученица',
-      termsH: '<em>Условия</em>', t1: 'Первое занятие бесплатно на всех курсах', t2: 'Три курса для одного ребёнка — скидка 10%', t3: 'Оплата: Kaspi, наличные, перевод, удалённая оплата', t4: 'Дополнительно: книги оплачиваются отдельно', t5: 'По справке или если занятие отменил центр — абонемент замораживается',
+      termsH: '<em>Условия</em>', t1: 'Первое занятие бесплатно на всех курсах', t2: 'При записи на 3 курса — скидка 10% на самый дорогой курс', t3: 'Оплата: Kaspi, наличные, перевод, удалённая оплата', t4: 'Дополнительно: книги оплачиваются отдельно', t5: 'Стоимость занятий, пропущенных по болезни ребёнка или по причинам со стороны центра, вычитается из оплаты',
+      cpWord: 'купон',
+      coupon: 'Оставьте номер телефона и получите <b>купон 15 000 ₸</b> на любой курс! Купон действует 12 месяцев!',
+      couponBtn: 'Получить купон',
+      ptsH: 'Хорошая учёба — <em>путь к призу</em>!',
+      ptsP: 'За хорошие результаты в учёбе дети получают пойнтсы. Собрал <b>20 пойнтсов</b> — «покупает» себе понравившуюся вещь. На фото — наши ученики с вещами, купленными за пойнтсы.',
+      ptsAlt1: 'Наш ученик с вещью, купленной за пойнтсы', ptsAlt2: 'Наш ученик с вещью, купленной за пойнтсы',
+      couponShort: '🎟 Оставьте телефон — купон 15 000 ₸, 12 месяцев',
+      couponDone: '🎟 Купон 15 000 ₸ закреплён за вами — действует 12 месяцев',
+      mCoupon: 'Купон 15 000 ₸ (12 месяцев)',
       badge: '🎁 Бесплатно', offerH: 'Первое занятие — бесплатно',
       fName: 'Имя родителя', fPhone: 'Телефон', fChild: 'Возраст / класс ребёнка', fProg: 'Программа',
       fContact: 'Как с вами связаться?', call: 'Звонок', anyProg: 'Нужна консультация — пока не знаю', noStage: 'Выберите',
@@ -580,7 +674,7 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
       eName: 'Напишите имя', ePhone: 'Номер в формате +7 7XX XXX XX XX', eConsent: 'Отметьте согласие',
       doneH: function (n) { return 'Спасибо, ' + n + '!'; },
       quizRes: function (a) { return 'Результат теста: <b>' + a + '</b>'; },
-      contH: '<em>Контакты</em>', addr: 'Алматы, Наурызбайский район, ул. Жунисова, 2/22 к13', hours: 'Пн–Пт 09:00–19:00 · Сб, Вс — выходной', route: 'Маршрут в 2ГИС', callBtn: 'Позвонить',
+      contH: '<em>Контакты</em>', addr: 'Алматы, Наурызбайский район, ул. Жунисова, 2/22', hours: 'Пн–Пт 09:00–19:00 · Сб, Вс — выходной', route: 'Маршрут в 2ГИС', callBtn: 'Позвонить',
       foot: 'образовательный центр', foot2: 'Демо-версия. Данные только для проверки.',
       dockFree: 'Бесплатно', dockQuiz: 'Тест', nudge: 'Готов ли ребёнок к школе? 5 вопросов, 1 минута.', nudgeGo: 'Проверить',
       quizTitle: 'Бесплатная проверка', q1: 'Сколько лет ребёнку?', qGoal: 'Что важно?', qTime: 'Когда удобно?',
@@ -590,6 +684,7 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
       scoreMid: 'Хорошее начало! Некоторые навыки стоит подтянуть — педагоги предложат конкретный план.',
       scoreLo: 'Ничего страшного — именно в этом возрасте навыки развиваются быстро. Педагоги подскажут, с чего начать.',
       scoreHint: 'Это короткий ориентир, а не диагноз. Полная диагностика — в центре, бесплатно.',
+      quizCoupon: '🎟 Отправьте результат в заявке и оставьте телефон — купон 15\u00a0000\u00a0₸, 12\u00a0месяцев',
       resH: 'Вам подойдёт:', resGo: 'Записаться на бесплатное занятие / диагностику', back: '← Назад',
       policyH: 'О данных', ok: 'Понятно',
       waMsg: 'Здравствуйте! Хочу записаться на бесплатное занятие.',
@@ -667,6 +762,7 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
       if (typeof v !== 'string') { return; }
       if (el.hasAttribute('data-html')) { el.innerHTML = v; } else { el.textContent = v; }
     });
+    document.querySelectorAll('[data-alt]').forEach(function (el) { el.alt = T[lang][el.getAttribute('data-alt')] || ''; });
     document.querySelectorAll('.lang button').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false'); });
     renderPath(); renderCircles(); renderProgs(); renderSelects(); renderQuizRes(); setWa();
   }
@@ -683,24 +779,22 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
     if (state.stage) { document.getElementById('filterText').textContent = t('forStage')(stageName(state.stage)); }
     document.getElementById('progs').innerHTML = list.map(function (p) { return progCard(p); }).join('');
     document.getElementById('extra').innerHTML = EXTRA.map(function (x) {
-      return '<button type="button" class="mini prog" id="p-' + x.id + '" data-pick="' + x.id + '"><span class="ic">' + x.ic + '</span><b>' + esc(x[lang]) + '</b><small>' + t('ask') + ' →</small></button>';
+      return '<button type="button" class="mini prog" id="p-' + x.id + '" data-pick="' + x.id + '">' + icon(x.ic, 44, false, 'ic') + '<b>' + esc(x[lang]) + '</b><small>' + t('ask') + ' →</small></button>';
     }).join('');
   }
   var CIRCLES = [
-    { go: 'ezd34', ic: '🧩', kk: 'ЕЖД', ru: 'ЕЖД' },
-    { go: 'mad', ic: '🎒', kk: 'МАД', ru: 'Подготовка' },
-    { go: 'prod', ic: '🏫', kk: 'Продленка', ru: 'Продлёнка' },
-    { go: 'eng', ic: '🇬🇧', kk: 'Ағылшын', ru: 'Английский' },
-    { go: 'math', ic: '📐', kk: 'Математика', ru: 'Математика' },
-    { go: 'dance', ic: '🤸', kk: 'Би', ru: 'Танцы' },
-    { go: 'speed', ic: '📖', kk: 'Жылдам оқу', ru: 'Скорочтение' },
-    { go: 'write', ic: '✍️', kk: 'Әдемі жазу', ru: 'Каллиграфия' },
-    { go: 'logo', ic: '🗣️', kk: 'Логопед', ru: 'Логопед' },
-    { go: 'afk', ic: '🏃', kk: 'АФК', ru: 'АФК' }
+    { go: 'ezd34', ic: 'ezd', kk: 'ЕЖД', ru: 'ЕЖД' },
+    { go: 'mad', ic: 'mad', kk: 'МАД', ru: 'Подготовка' },
+    { go: 'prod', ic: 'prod', kk: 'Продленка', ru: 'Продлёнка' },
+    { go: 'eng', ic: 'eng', kk: 'Ағылшын', ru: 'Английский' },
+    { go: 'math', ic: 'math', kk: 'Математика', ru: 'Математика' },
+    { go: 'dance', ic: 'dance', kk: 'Би', ru: 'Танцы' },
+    { go: 'speed', ic: 'speed', kk: 'Жылдам оқу', ru: 'Скорочтение' },
+    { go: 'write', ic: 'write', kk: 'Әдемі жазу', ru: 'Каллиграфия' }
   ];
   function renderCircles() {
     document.getElementById('circles').innerHTML = CIRCLES.map(function (c) {
-      return '<button type="button" class="circle" data-go="' + c.go + '"><i>' + c.ic + '</i><span>' + esc(c[lang]) + '</span></button>';
+      return '<button type="button" class="circle" data-go="' + c.go + '">' + icon(c.ic, 56, true) + '<span>' + esc(c[lang]) + '</span></button>';
     }).join('');
   }
   document.getElementById('circles').addEventListener('click', function (e) {
@@ -713,12 +807,29 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
     track('stage', 'c-' + id);
   });
   function progCard(p, noId) {
-    return '<article class="prog"' + (noId ? '' : ' id="p-' + p.id + '"') + ' style="--c:' + p.c + '"><div class="hd"><span class="ic">' + p.ic + '</span><div><h3>' + esc(p[lang][0]) + '</h3><span class="tag">' + esc(p[lang][1]) + '</span></div></div>' +
+    return '<article class="prog"' + (noId ? '' : ' id="p-' + p.id + '"') + ' style="--c:' + p.c + '">' + (noId ? '' : photos(p)) + '<div class="hd">' + icon(p.ic, 48, false, 'ic') + '<div><h3>' + esc(p[lang][0]) + '</h3><span class="tag">' + esc(p[lang][1]) + '</span></div></div>' +
       '<ul>' + p.b[lang].map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' +
       '<div class="note">🎁 ' + t('freeCard') + '</div>' +
       (p.n ? '<div class="note">★ ' + esc(p.n[lang]) + '</div>' : '') +
       '<div class="row"><div class="price">' + fmt(p.price) + ' <small>' + t('perMonth') + '</small></div>' +
       '<button type="button" class="btn small g" data-pick="' + p.id + '">' + t('pick') + '</button></div></article>';
+  }
+  function photos(p) {
+    if (!p.ph) { return ''; }
+    var k = p.ph[0], n = p.ph[1], first = p.ph[2] || 1, alt = PH_ALT[k][lang], sl = '', dots = '';
+    // ph[2] — с какого фото начать полосу (ЕЖД 4–5 начинается не так, как ЕЖД 3–4; набор тот же)
+    for (var i = 1; i <= n; i++) {
+      var src = 'img/' + k + '-' + ((first - 1 + i - 1) % n + 1) + '.webp';
+      sl += '<figure class="ph-i"><img class="ph-bg" src="' + src + '" alt="" aria-hidden="true" loading="lazy" decoding="async">' +
+        '<img src="' + src + '" alt="' + esc(alt + ' — ' + i + '/' + n) + '" loading="lazy" decoding="async"></figure>';
+      dots += '<button type="button" data-ph="' + (i - 1) + '" aria-label="' + i + '/' + n + '" aria-current="' + (i === 1) + '"></button>';
+    }
+    return '<div class="ph"><div class="ph-s" tabindex="0" role="group" aria-label="' + esc(alt) + '">' + sl + '</div>' +
+      (n > 1 ? '<div class="ph-d">' + dots + '</div>' : '') + '</div>';
+  }
+  // Иконка набора (img/ic/<id>.webp): декоративная, размер задан — страница не прыгает. lazy=false — для первого экрана.
+  function icon(id, size, eager, cls) {
+    return '<img class="ici' + (cls ? ' ' + cls : '') + '" src="img/ic/' + id + '.webp" width="' + size + '" height="' + size + '" alt="" aria-hidden="true"' + (eager ? '' : ' loading="lazy"') + ' decoding="async">';
   }
   function renderSelects() {
     var c = document.getElementById('child'), pr = document.getElementById('program');
@@ -741,6 +852,16 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
     if (state.stage) { document.getElementById('programs').scrollIntoView({ block: 'start' }); }
   });
   document.getElementById('filterReset').addEventListener('click', function () { setStage(''); });
+  document.getElementById('progs').addEventListener('scroll', function (e) {
+    var s = e.target; if (!s.classList || !s.classList.contains('ph-s')) { return; }
+    var i = Math.round(s.scrollLeft / s.clientWidth);
+    s.parentNode.querySelectorAll('[data-ph]').forEach(function (d, j) { d.setAttribute('aria-current', j === i ? 'true' : 'false'); });
+  }, true);
+  document.getElementById('progs').addEventListener('click', function (e) {
+    var d = e.target.closest('[data-ph]'); if (!d) { return; }
+    var s = d.closest('.ph').querySelector('.ph-s');
+    s.scrollTo({ left: s.clientWidth * +d.getAttribute('data-ph'), behavior: 'smooth' });
+  });
   document.getElementById('programs').addEventListener('click', function (e) {
     var b = e.target.closest('[data-pick]'); if (!b) { return; }
     document.getElementById('program').value = b.getAttribute('data-pick');
@@ -752,7 +873,7 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
     document.getElementById('offer').scrollIntoView({ block: 'start' });
     setTimeout(function () { var n = document.getElementById('name'); if (n && !n.value) { n.focus({ preventScroll: true }); } }, 450);
   }
-  document.querySelectorAll('[data-go-form]').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); goForm(); }); });
+  document.querySelectorAll('[data-go-form]').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); if (a.hasAttribute('data-coupon')) { track('coupon', e.target.closest('.cp-btn') ? 'btn' : 'hero'); a.classList.add('cp-stop'); } goForm(); }); });
   document.getElementById('leadForm').addEventListener('focusin', function () { track('form', '', true); });
   document.querySelectorAll('[data-call]').forEach(function (a) { a.addEventListener('click', function () { track('call', ''); }); });
   document.querySelectorAll('.seg input').forEach(function (r) {
@@ -788,6 +909,7 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
   function showDone(name, url) {
     var f = document.getElementById('leadForm');
     f.style.display = 'none';
+    var cb = document.querySelector('#offer .cp-badge'); if (cb) { cb.style.display = 'none'; }
     document.getElementById('quizres').classList.remove('on');
     document.getElementById('doneH').textContent = t('doneH')(name);
     var dw = document.getElementById('doneWa');
@@ -824,6 +946,7 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
       if (testText()) { lines.push(L.mTest + ': ' + testText()); }
       if (timeText(lang)) { lines.push(L.mTime + ': ' + timeText(lang)); }
       lines.push(L.mContact + ': ' + (contact === 'call' ? L.mCall : L.mWa));
+      lines.push('🎟 ' + L.mCoupon);
       lines.push('[EduPoint' + (src ? ' · ' + src : '') + ']');
       var url = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(lines.join('\n'));
       track('lead', contact);
@@ -928,6 +1051,7 @@ form input:focus,form select:focus{outline:3px solid #FFD3A1;border-color:var(--
         var r = state.score / state.max, msg = r >= 0.8 ? t('scoreHi') : (r >= 0.5 ? t('scoreMid') : t('scoreLo'));
         h += '<div class="score"><b>' + t('scoreTitle')(state.score, state.max) + '</b><p>' + msg + '</p><p class="hint">' + t('scoreHint') + '</p></div>';
       }
+      h += '<div class="cp-badge" style="margin:12px 0 4px">' + t('quizCoupon') + '</div>';
       h += '<p class="qq">' + t('resH') + '</p><div class="res">' + rec.map(function (p) { return progCard(p, true); }).join('') + '</div>' +
         '<button type="button" class="btn o send" id="qGo">' + t('resGo') + '</button>';
     }
